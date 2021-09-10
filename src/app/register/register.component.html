@@ -1,0 +1,107 @@
+<!-- Default form register -->
+<form class="text-center border border-light p-5" action="#!" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div *ngIf="registerForm.invalid && (registerForm.dirty || registerForm.touched)">
+  </div>
+
+  <p class="h4 mb-4">Sign up</p>
+
+  <div class="form-row mb-4">
+    <div class="col">
+      <!-- First name -->
+      <input
+      type="text"
+       id="defaultRegisterFormFirstName"
+        class="form-control"
+        formControlName="firstName"
+        placeholder="First name">
+    </div>
+    <div *ngIf="submitted && (firstName.touched|| firstName.dirty)">
+      <div *ngIf="firstName.errors?.required">
+        name is required
+      </div>
+      <div *ngIf="firstName.errors?.minlength">
+        name should be atleast 8 characters
+      </div>
+    </div>
+    <div class="col">
+      <!-- Last name -->
+      <input
+      type="text"
+       id="defaultRegisterFormLastName"
+       class="form-control"
+       formControlName="lastName"
+       placeholder="Last name">
+    </div>
+    <div *ngIf="submitted && (lastName.dirty || lastName.touched)">
+      <div *ngIf="lastName.errors?.required">
+        Last name is required
+      </div>
+      <div *ngIf="lastName.errors?.minlength">
+        last name should have atleast 8 characters
+      </div>
+    </div>
+  </div>
+
+  <!-- E-mail -->
+  <input
+  type="email"
+  id="defaultRegisterFormEmail"
+  class="form-control mb-4"
+  formControlName="email"
+  placeholder="E-mail">
+  <div *ngIf="submitted && (email.dirty || email.touched)">
+    <div *ngIf="email.errors?.required">
+      email is required
+    </div>
+    <div *ngIf="email.errors?.pattern">
+      email format incorrect
+    </div>
+  </div>
+
+  <!-- Password -->
+  <input
+  type="password"
+  id="defaultRegisterFormPassword"
+  class="form-control"
+  placeholder="Password"
+  formControlName="password"
+  aria-describedby="defaultRegisterFormPasswordHelpBlock">
+  <div *ngIf="submitted && (password.dirty || password.touched)">
+    <div *ngIf="password.errors?.required">
+      password is required
+    </div>
+    <div *ngIf="password.errors?.pattern">
+      password format incorrect
+    </div>
+  </div>
+
+  <!-- confirm Password -->
+  <input
+  type="password"
+  id="defaultRegisterFormPassword"
+  class="form-control"
+  placeholder="Confirm Password"
+  formControlName="password"
+  aria-describedby="defaultRegisterFormPasswordHelpBlock">
+  <div *ngIf="">
+  </div>
+
+  <!-- Phone number -->
+  <input
+  type="text"
+  id="defaultRegisterPhonePassword"
+   class="form-control"
+    placeholder="Phone number"
+    formControlName="phoneNumber"
+    aria-describedby="defaultRegisterFormPhoneHelpBlock">
+
+  <!-- Sign up button -->
+  <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+
+  <!-- Terms of service -->
+  <p>By clicking
+    <em>Sign up</em> you agree to our
+    <a href="" target="_blank">terms of service</a>
+
+</form>
+<!-- Default form register -->
